@@ -2,6 +2,7 @@ using Toybox.WatchUi;
 using Toybox.System;
 using Toybox.Position as Position;
 using Toybox.Math;
+import Toybox.Lang;
 
 
 // Find COG / Heading
@@ -96,7 +97,7 @@ class Menu2SampleSubMenuDelegate extends WatchUi.Menu2InputDelegate {
         Menu2InputDelegate.initialize();
     }
 
-    function onSelect(item) {
+    function onSelect(item as WatchUi.ToggleMenuItem) {
 
         //Draw Boat
         var MenuItem = item.getId();

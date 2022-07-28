@@ -49,7 +49,7 @@ class TackingMasterDynamics
 		var i;
 		m_Size = Size;
 		m_bCOG = bCOG;
-		me.m_NowPointer = m_Size;
+		self.m_NowPointer = m_Size;
 		//System.println("Dynamics::initialize() - m_Size=" + m_Size );
 		for( i = 0; i < m_Size; i += 1 ) {
 			m_aData.add(999.00001);

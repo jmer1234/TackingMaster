@@ -1,18 +1,12 @@
-using Toybox.WatchUi;
-using Toybox.System as System;
-using Toybox.Graphics;
-using Toybox.Application as App;
-using Toybox.Timer;
-using Toybox.Position;
-using Toybox.Math;
+using Toybox.WatchUi as Ui;
+import Toybox.System;
+using Toybox.Graphics as Gfx;
+import Toybox.Application;
+import Toybox.Timer;
+import Toybox.Position;
+import Toybox.Math;
 
 var myCount =  0;
-
-
-function timerCallback() {
-    myCount += 1;
-    WatchUi.requestUpdate();
-}
 
 function reduse_deg(deg) {
 	if (deg<0) 		{	deg += 360; }
@@ -24,7 +18,7 @@ function reduse_deg(deg) {
 }
 
 
-class TackingMasterView extends WatchUi.View {
+class TackingMasterView extends Ui.View {
 
 	//Member variables
 	var m_screenShape;
@@ -55,7 +49,7 @@ class TackingMasterView extends WatchUi.View {
         m_screenShape = System.getDeviceSettings().screenShape;
 
 		// Get the WindDirection from the settings-storage
-        var app = App.getApp();
+        var app = Application.getApp();
         var WindDirection = Application.Storage.getValue("WindDirection");
         
         if (WindDirection==null){
@@ -93,6 +87,11 @@ class TackingMasterView extends WatchUi.View {
 
     }
 
+	function timerCallback() as Void {
+    	myCount += 1;
+    	Ui.requestUpdate();
+	}
+
     //=====================
     // Called when this View is brought to the foreground. Restore
     // the state of this View and prepare it to be shown. This includes
@@ -116,13 +115,13 @@ class TackingMasterView extends WatchUi.View {
 
     function setPosition(info) {
         m_posnInfo = info;
-        WatchUi.requestUpdate();
+        Ui.requestUpdate();
     }
 
     //==========================================
     // Update the view
     //==========================================
-    function onUpdate(dc) {
+    function onUpdate(dc as Gfx.Dc) {
 		m_width = dc.getWidth();
 		m_height = dc.getHeight();
 
@@ -179,19 +178,19 @@ class TackingMasterView extends WatchUi.View {
 		drawBoat(dc);
 
 		// Draw laylines
-		dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLACK);
+		dc.setColor(Gfx.COLOR_BLUE, Gfx.COLOR_BLACK);
 		dc.setPenWidth(2);
 		moveToOrigoC(dc, -m_width*Math.sin(Math.PI/4), -m_height*Math.sin(Math.PI/4));
 		lineToOrigoC(dc, 0, 0);
 		lineToOrigoC(dc,  m_width*Math.sin(Math.PI/4), -m_height*Math.sin(Math.PI/4));
-		dc.drawArc( m_width/2, m_height/2, m_height/2-20, dc.ARC_CLOCKWISE, 180-m_TackAngle/2, m_TackAngle/2);
+		dc.drawArc( m_width/2, m_height/2, m_height/2-20, Gfx.ARC_CLOCKWISE, 180-m_TackAngle/2, m_TackAngle/2);
         
 		// Draw numbers for wind directions
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+        dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
 		//m_WindDirection = me.reduse_deg(m_WindDirection); // !!! Why?
-        dc.drawText(m_width/2, m_height/2-115, Graphics.FONT_TINY, m_WindDirection , Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(m_width/5, m_height/2-70, Graphics.FONT_TINY, m_WindDirPort, Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(m_width/5*4, m_height/2-70, Graphics.FONT_TINY, m_WindDirStarboard, Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.drawText(m_width/2, m_height/2-115, Gfx.FONT_TINY, m_WindDirection , Gfx.TEXT_JUSTIFY_CENTER);
+        dc.drawText(m_width/5, m_height/2-70, Gfx.FONT_TINY, m_WindDirPort, Gfx.TEXT_JUSTIFY_LEFT);
+        dc.drawText(m_width/5*4, m_height/2-70, Gfx.FONT_TINY, m_WindDirStarboard, Gfx.TEXT_JUSTIFY_RIGHT);
 
 		//Draw Cog-curve 
 		drawCogPlot(dc);
@@ -203,20 +202,20 @@ class TackingMasterView extends WatchUi.View {
 		drawSpeedPlot(dc);
 
 		// Draw COG-text in a circle
-		var fontHeight = dc.getFontHeight(Graphics.FONT_TINY); 
-		dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+		var fontHeight = dc.getFontHeight(Gfx.FONT_TINY); 
+		dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_BLACK);
 		dc.fillCircle(m_width/2, m_height/2, 25);
-		dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLUE);
+		dc.setColor(Gfx.COLOR_BLUE, Gfx.COLOR_BLUE);
         dc.drawCircle(m_width/2, m_height/2, 25);
         
-        dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_BLACK);
-        dc.drawText(m_width/2, m_height/2-fontHeight/2, Graphics.FONT_TINY, m_COG_deg.toNumber() , Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(Gfx.COLOR_YELLOW, Gfx.COLOR_BLACK);
+        dc.drawText(m_width/2, m_height/2-fontHeight/2, Gfx.FONT_TINY, m_COG_deg.toNumber() , Gfx.TEXT_JUSTIFY_CENTER);
 
 		// Draw Time-text
 		var myTime = System.getClockTime(); // ClockTime object
 		var myTimeText = myTime.hour.format("%02d") + ":" + myTime.min.format("%02d") + ":" + myTime.sec.format("%02d");
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(m_width/2, m_height/2+70, Graphics.FONT_XTINY, myTimeText, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
+        dc.drawText(m_width/2, m_height/2+70, Gfx.FONT_XTINY, myTimeText, Gfx.TEXT_JUSTIFY_CENTER);
 		
     }
 
@@ -230,7 +229,7 @@ class TackingMasterView extends WatchUi.View {
     // Draws the clock tick marks around the outside edges of the screen.
 	// ==========================================================================
     function drawHashMarks(dc) {
-		dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+		dc.setColor(Gfx.COLOR_BLUE, Gfx.COLOR_TRANSPARENT);
 		dc.setPenWidth(2);
 
         // Draw hashmarks differently depending on screen geometry.
@@ -249,7 +248,7 @@ class TackingMasterView extends WatchUi.View {
                 dc.drawLine(sX, sY, eX, eY);
             }
 
-            // draw 10-deg tick marks.
+            // draw 1-deg tick marks.
             innerRad = outerRad - 5;
             for (var i = 0; i < 2 * Math.PI ; i += (Math.PI / 90)) {
                 sY = outerRad + innerRad * Math.sin(i);
@@ -281,28 +280,28 @@ class TackingMasterView extends WatchUi.View {
     		return;
     	}
     	
-		dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLACK);
-		var fontHeight = dc.getFontHeight(Graphics.FONT_TINY); 
+		dc.setColor(Gfx.COLOR_BLUE, Gfx.COLOR_BLACK);
+		var fontHeight = dc.getFontHeight(Gfx.FONT_TINY); 
 
 		var i = -(m_WindDirection+90)/180.0 * Math.PI;
         var X = ((m_width/2)-20) * Math.cos(i);
         var Y = ((m_height/2)-20) * Math.sin(i);
-    	dc.drawText(X + (m_width/2), Y + (m_height/2) - fontHeight/2, Graphics.FONT_TINY, "N", Graphics.TEXT_JUSTIFY_CENTER);
+    	dc.drawText(X + (m_width/2), Y + (m_height/2) - fontHeight/2, Gfx.FONT_TINY, "N", Gfx.TEXT_JUSTIFY_CENTER);
  		
 		i = -(m_WindDirection)/180.0 * Math.PI;
         X = ((m_width/2)-20) * Math.cos(i);
         Y = ((m_height/2)-20) * Math.sin(i);
-    	dc.drawText(X + (m_width/2), Y + (m_height/2) - fontHeight/2, Graphics.FONT_TINY, "E", Graphics.TEXT_JUSTIFY_CENTER);
+    	dc.drawText(X + (m_width/2), Y + (m_height/2) - fontHeight/2, Gfx.FONT_TINY, "E", Gfx.TEXT_JUSTIFY_CENTER);
 
 		i = -(m_WindDirection-90)/180.0 * Math.PI;
         X = ((m_width/2)-20) * Math.cos(i);
         Y = ((m_height/2)-20) * Math.sin(i);
-    	dc.drawText(X + (m_width/2), Y + (m_height/2) - fontHeight/2, Graphics.FONT_TINY, "S", Graphics.TEXT_JUSTIFY_CENTER);
+    	dc.drawText(X + (m_width/2), Y + (m_height/2) - fontHeight/2, Gfx.FONT_TINY, "S", Gfx.TEXT_JUSTIFY_CENTER);
 
 		i = -(m_WindDirection+180)/180.0 * Math.PI;
         X = ((m_width/2)-20) * Math.cos(i);
         Y = ((m_height/2)-20) * Math.sin(i);
-    	dc.drawText(X + (m_width/2), Y + (m_height/2) - fontHeight/2, Graphics.FONT_TINY, "W", Graphics.TEXT_JUSTIFY_CENTER);
+    	dc.drawText(X + (m_width/2), Y + (m_height/2) - fontHeight/2, Gfx.FONT_TINY, "W", Gfx.TEXT_JUSTIFY_CENTER);
     }
 
     //=====================
@@ -316,9 +315,9 @@ class TackingMasterView extends WatchUi.View {
 		
 //		System.println("drawNorth : WindDirection=" + WindDirection + " i="+i);
 		
-    	dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+    	dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
     	dc.fillCircle(X + (m_width/2), Y + (m_height/2), m_CogDotSize+2);
-    	dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
+    	dc.setColor(Gfx.COLOR_YELLOW, Gfx.COLOR_TRANSPARENT);
     	dc.fillCircle(X + (m_width/2), Y + (m_height/2), m_CogDotSize);
     }	
     //=====================
@@ -336,7 +335,7 @@ class TackingMasterView extends WatchUi.View {
 		
     	//Draw Boat
     	dc.setPenWidth(5);
-    	dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+    	dc.setColor(Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT);
 
 		var arrayBoat = [ 
 				[+  0,- 50], 
@@ -393,11 +392,11 @@ class TackingMasterView extends WatchUi.View {
     	if (m_bDrawSpeedPlot){
 			m_SpeedHistory.drawPlot(10, m_height/2+33, plotWidth, plotHeight, dc);
 
-			dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
-			dc.drawText(m_width*0.75, m_height/2+33, Graphics.FONT_SMALL, m_Speed_kn.format("%.1f") + " kn", Graphics.TEXT_JUSTIFY_CENTER);
+			dc.setColor(Gfx.COLOR_GREEN, Gfx.COLOR_TRANSPARENT);
+			dc.drawText(m_width*0.75, m_height/2+33, Gfx.FONT_SMALL, m_Speed_kn.format("%.1f") + " kn", Gfx.TEXT_JUSTIFY_CENTER);
 		} else {
-			dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
-			dc.drawText(m_width/2, m_height/2+33, Graphics.FONT_SMALL, m_Speed_kn.format("%.1f") + " kn", Graphics.TEXT_JUSTIFY_CENTER);
+			dc.setColor(Gfx.COLOR_GREEN, Gfx.COLOR_TRANSPARENT);
+			dc.drawText(m_width/2, m_height/2+33, Gfx.FONT_SMALL, m_Speed_kn.format("%.1f") + " kn", Gfx.TEXT_JUSTIFY_CENTER);
 		}
 	}
 
@@ -405,23 +404,23 @@ class TackingMasterView extends WatchUi.View {
     // Draws Cog-histoy-plot
 	//================================
 	function drawCogPlot(dc){
-		var plotWidth=m_width/2;
-		var plotHeight=35;
+		var plotWidth = m_width/2;
+		var plotHeight = 35;
 
 
 		//Draw orthogonal COG-plot
     	if (m_bDrawOrthogonalCogPlot){
-			dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
+			dc.setColor(Gfx.COLOR_YELLOW, Gfx.COLOR_TRANSPARENT);
 			dc.setPenWidth(2);
 			m_CogHistory.drawPlot(10, m_height/2+33, plotWidth, plotHeight, dc);
 		}
 
 		//Draw polar COG-plot
     	if (m_bDrawPolarCogPlot){
-			dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+			dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
 			dc.setPenWidth(4);
 			m_CogHistory.drawPolarPlot(dc, m_width, m_height, m_WindDirection);
-			dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
+			dc.setColor(Gfx.COLOR_YELLOW, Gfx.COLOR_TRANSPARENT);
 			dc.setPenWidth(2);
 			m_CogHistory.drawPolarPlot(dc, m_width, m_height, m_WindDirection);
 		}
@@ -441,4 +440,4 @@ class TackingMasterView extends WatchUi.View {
 		prevX=nextX;
 		prevY=nextY;
     }
-}
+}	

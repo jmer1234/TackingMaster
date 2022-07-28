@@ -1,8 +1,8 @@
-using Toybox.Application;
-using Toybox.WatchUi;
-using Toybox.System as System;
-using Toybox.Application as App;
-using Toybox.Position as Position;
+import Toybox.Application;
+import Toybox.WatchUi;
+import Toybox.System;
+import Toybox.Position;
+import Toybox.Lang;
 
 //Main master-class
 class TackingMasterApp extends Application.AppBase {
@@ -43,7 +43,7 @@ class TackingMasterApp extends Application.AppBase {
 
     }
 
-    function onPosition(info) { 
+    function onPosition(info as Info) as Void { 
         m_TackingMasterView.setPosition(info);
     }
 	
