@@ -249,6 +249,7 @@ class TackingMasterView extends Ui.View {
             }
 
             // draw 1-deg tick marks.
+			dc.setPenWidth(1);
             innerRad = outerRad - 5;
             for (var i = 0; i < 2 * Math.PI ; i += (Math.PI / 90)) {
                 sY = outerRad + innerRad * Math.sin(i);
