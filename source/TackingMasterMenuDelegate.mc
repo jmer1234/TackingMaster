@@ -11,7 +11,7 @@ function getCOG() {
 	var positionInfo = Position.getInfo();
 	var Heading_deg = 0;
 	if(positionInfo!=null){
-		Heading_deg = (positionInfo.heading)/Math.PI*180;
+		Heading_deg = Math.toDegrees(positionInfo.heading);
 	}
 	return Heading_deg;
 }

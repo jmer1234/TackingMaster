@@ -32,21 +32,19 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
 _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterMenuDelegate_mc_13_1_if_true:
 _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterMenuDelegate_mc_13_23_start:
 [ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterMenuDelegate.mc" 14 2 ]
-    %tmp.10 = lgetv %positionInfo.1;
-    %tmp.11 = as %tmp.10 { (!Null) };
-    %tmp.12 = getv %tmp.11 :heading;
-    %tmp.13 = getm $.Toybox.Math;
-    %tmp.14 = getv %tmp.13 :PI;
-    %tmp.15 = div %tmp.12 %tmp.14;
-    %tmp.16 = 180;
-    %tmp.17 = mul %tmp.15 %tmp.16;
-    lputv %Heading_deg.2 %tmp.17;
+    %tmp.9 = getm $.Toybox.Math;
+    %tmp.10 = getv function %tmp.9 :toDegrees;
+    %tmp.12 = lgetv %positionInfo.1;
+    %tmp.13 = as %tmp.12 { (!Null) };
+    %tmp.14 = getv %tmp.13 :heading;
+    %tmp.15 = invoke %tmp.9 %tmp.10(%tmp.14);
+    lputv %Heading_deg.2 %tmp.15;
 _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterMenuDelegate_mc_13_23_stop:
     goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterMenuDelegate_mc_13_1_if_end;
 _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterMenuDelegate_mc_13_1_if_end:
 [ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterMenuDelegate.mc" 16 1 ]
-    %tmp.19 = lgetv %Heading_deg.2;
-    ret %tmp.19;
+    %tmp.17 = lgetv %Heading_deg.2;
+    ret %tmp.17;
 _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterMenuDelegate_mc_10_18_stop:
 }
 [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterMenuDelegate.mc"; @line = 20; ]

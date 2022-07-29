@@ -22,7 +22,7 @@ class TackingMasterView extends Ui.View {
 
 	//Member variables
 	var m_screenShape;
-	var m_TackAngle = 90;
+	var m_TackAngle = 80;
 	var m_posnInfo = null;
 	var m_width;
 	var m_height;
@@ -45,7 +45,7 @@ class TackingMasterView extends Ui.View {
 	
     function initialize() {
         View.initialize();
-//        System.println("TackingMasterView.initialize");
+		//System.println("TackingMasterView.initialize");
         m_screenShape = System.getDeviceSettings().screenShape;
 
 		// Get the WindDirection from the settings-storage
@@ -56,7 +56,7 @@ class TackingMasterView extends Ui.View {
         	WindDirection=100;
         }
         Application.Storage.setValue("WindDirection", WindDirection);
-//        System.println("TackingMasterView.initialize - WindDirection=" + WindDirection);
+		//System.println("TackingMasterView.initialize - WindDirection=" + WindDirection);
    		
    		m_bDrawBoat = Application.Storage.getValue("DrawBoat");
    		if (m_bDrawBoat==null){m_bDrawBoat = true;}   	
@@ -79,7 +79,7 @@ class TackingMasterView extends Ui.View {
     //=====================
     function onLayout(dc) {
         setLayout(Rez.Layouts.MainLayout(dc)); 
-//		System.println("Load resources");
+		//System.println("Load resources");
 		
 		// Create a counter that increments by one each second
 		var myTimer = new Timer.Timer();
@@ -136,11 +136,12 @@ class TackingMasterView extends Ui.View {
         m_WindDirStarboard = reduse_deg(m_WindDirection + (m_TackAngle/2) );
         m_WindDirPort = reduse_deg(m_WindDirection - (m_TackAngle/2) );
 
-//        System.println("TackingMasterView.onUpdate() - m_WindDirection=" + m_WindDirection);
+		//System.println("TackingMasterView.onUpdate() - m_WindDirection=" + m_WindDirection);
 
  		// Get COG & SOG
 		if(m_posnInfo!=null	){ 
-			m_COG_deg = reduse_deg((m_posnInfo.heading)/Math.PI*180);
+			//m_COG_deg = reduse_deg((m_posnInfo.heading)/Math.PI*180);
+			m_COG_deg = reduse_deg(Math.toDegrees(m_posnInfo.heading));
 		}
 		else{
 			m_COG_deg = 0;
@@ -168,6 +169,12 @@ class TackingMasterView extends Ui.View {
         	Position.QUALITY_GOOD
         }
 */
+		//Draw speed-curve and SOG-text
+		drawSpeedPlot(dc);
+
+		//Draw Cog-curve 
+		drawCogPlot(dc);
+
         // Draw the tick marks around the edges of the screen
         drawHashMarks(dc);
 
@@ -180,10 +187,8 @@ class TackingMasterView extends Ui.View {
 		// Draw laylines
 		dc.setColor(Gfx.COLOR_BLUE, Gfx.COLOR_BLACK);
 		dc.setPenWidth(2);
-		moveToOrigoC(dc, -m_width*Math.sin(Math.PI/4), -m_height*Math.sin(Math.PI/4));
-		lineToOrigoC(dc, 0, 0);
-		lineToOrigoC(dc,  m_width*Math.sin(Math.PI/4), -m_height*Math.sin(Math.PI/4));
-		dc.drawArc( m_width/2, m_height/2, m_height/2-20, Gfx.ARC_CLOCKWISE, 180-m_TackAngle/2, m_TackAngle/2);
+		drawLaylines(dc);
+		dc.drawArc( m_width/2, m_height/2, m_height/2-20, Gfx.ARC_CLOCKWISE, (90.0 + (m_TackAngle/2)), (90.0 - (m_TackAngle/2)));
         
 		// Draw numbers for wind directions
         dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
@@ -192,14 +197,8 @@ class TackingMasterView extends Ui.View {
         dc.drawText(m_width/5, m_height/2-70, Gfx.FONT_TINY, m_WindDirPort, Gfx.TEXT_JUSTIFY_LEFT);
         dc.drawText(m_width/5*4, m_height/2-70, Gfx.FONT_TINY, m_WindDirStarboard, Gfx.TEXT_JUSTIFY_RIGHT);
 
-		//Draw Cog-curve 
-		drawCogPlot(dc);
-
         // Draw COG-circle 
 		drawCogDot(dc);
-
-		//Draw speed-curve and SOG-text
-		drawSpeedPlot(dc);
 
 		// Draw COG-text in a circle
 		var fontHeight = dc.getFontHeight(Gfx.FONT_TINY); 
@@ -224,6 +223,27 @@ class TackingMasterView extends Ui.View {
     // memory.
     function onHide() {
     }
+
+	// Draws the laylines
+	function drawLaylines(dc) {
+		var sX, sY;
+        var eX, eY;
+        var outerRad = m_width / 2;
+        var innerRad = outerRad - 100;
+        //var angle = Math.toRadians(m_TackAngle);
+		var radAngle = Math.toRadians(-90.0 + (m_TackAngle/2));
+        sY = outerRad + innerRad * Math.sin(radAngle);
+        eY = outerRad + outerRad * Math.sin(radAngle);
+        sX = outerRad + innerRad * Math.cos(radAngle);
+        eX = outerRad + outerRad * Math.cos(radAngle);
+        dc.drawLine(sX, sY, eX, eY);
+		radAngle = Math.toRadians(-90.0 - (m_TackAngle/2));
+        sY = outerRad + innerRad * Math.sin(radAngle);
+        eY = outerRad + outerRad * Math.sin(radAngle);
+        sX = outerRad + innerRad * Math.cos(radAngle);
+        eX = outerRad + outerRad * Math.cos(radAngle);
+		dc.drawLine(sX, sY, eX, eY);
+	}
 
 
     // Draws the clock tick marks around the outside edges of the screen.
@@ -314,7 +334,7 @@ class TackingMasterView extends Ui.View {
         var X = ((m_width/2)-m_CogDotSize) * Math.cos(i);
         var Y = ((m_height/2)-m_CogDotSize) * Math.sin(i);
 		
-//		System.println("drawNorth : WindDirection=" + WindDirection + " i="+i);
+		//System.println("drawNorth : WindDirection=" + WindDirection + " i="+i);
 		
     	dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_TRANSPARENT);
     	dc.fillCircle(X + (m_width/2), Y + (m_height/2), m_CogDotSize+2);
@@ -335,7 +355,7 @@ class TackingMasterView extends Ui.View {
 		WD = WD + Math.PI/2;
 		
     	//Draw Boat
-    	dc.setPenWidth(5);
+    	dc.setPenWidth(3);
     	dc.setColor(Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT);
 
 		var arrayBoat = [ 
