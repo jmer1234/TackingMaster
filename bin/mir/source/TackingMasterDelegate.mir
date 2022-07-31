@@ -87,65 +87,81 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.68 = getv function %tmp.67 :loadResource;
         %tmp.70 = getv ? :Rez;
         %tmp.71 = getv %tmp.70 :Strings;
-        %tmp.72 = getv %tmp.71 :menu_label_Settings;
+        %tmp.72 = getv %tmp.71 :menu_label_TackAngle;
         %tmp.73 = invoke %tmp.67 %tmp.68(%tmp.72);
         %tmp.74 = null;
-        %tmp.75 = "idSettings";
+        %tmp.75 = "idTackAngle";
         %tmp.76 = null;
         %tmp.63 = newc %tmp.66 (%tmp.73, %tmp.74, %tmp.75, %tmp.76);
         invoke %tmp.61 %tmp.62(%tmp.63);
 [ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 23 8 ]
-        %tmp.77 = getm $.Toybox.WatchUi;
-        %tmp.78 = getv function %tmp.77 :pushView;
-        %tmp.80 = lgetv %menu.1;
-        %tmp.84 = getv ? :TackingMasterMenuDelegate;
-        %tmp.81 = newc %tmp.84 ();
-        %tmp.85 = getm $.Toybox.WatchUi;
-        %tmp.86 = getv %tmp.85 :SLIDE_UP;
-        invoke %tmp.77 %tmp.78(%tmp.80, %tmp.81, %tmp.86);
+        %tmp.78 = lgetv %menu.1;
+        %tmp.79 = getv function %tmp.78 :addItem;
+        %tmp.82 = getm $.Toybox.WatchUi;
+        %tmp.83 = getv function ? %tmp.82 :MenuItem;
+        %tmp.84 = getm $.Toybox.WatchUi;
+        %tmp.85 = getv function %tmp.84 :loadResource;
+        %tmp.87 = getv ? :Rez;
+        %tmp.88 = getv %tmp.87 :Strings;
+        %tmp.89 = getv %tmp.88 :menu_label_Settings;
+        %tmp.90 = invoke %tmp.84 %tmp.85(%tmp.89);
+        %tmp.91 = null;
+        %tmp.92 = "idSettings";
+        %tmp.93 = null;
+        %tmp.80 = newc %tmp.83 (%tmp.90, %tmp.91, %tmp.92, %tmp.93);
+        invoke %tmp.78 %tmp.79(%tmp.80);
 [ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 24 8 ]
-        %tmp.87 = true;
-        ret %tmp.87;
+        %tmp.94 = getm $.Toybox.WatchUi;
+        %tmp.95 = getv function %tmp.94 :pushView;
+        %tmp.97 = lgetv %menu.1;
+        %tmp.101 = getv ? :TackingMasterMenuDelegate;
+        %tmp.98 = newc %tmp.101 ();
+        %tmp.102 = getm $.Toybox.WatchUi;
+        %tmp.103 = getv %tmp.102 :SLIDE_UP;
+        invoke %tmp.94 %tmp.95(%tmp.97, %tmp.98, %tmp.103);
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 25 8 ]
+        %tmp.104 = true;
+        ret %tmp.104;
 _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_13_22_stop:
     }
-    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 29; ]
+    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 30; ]
     function onKey(keyEvent) {
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_29_29_start:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 32 8 ]
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_32_8_if_stmt:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_30_29_start:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 33 8 ]
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_33_8_if_stmt:
         %tmp.2 = lgetv %keyEvent;
         %tmp.3 = getv function %tmp.2 :getKey;
         %tmp.4 = invoke %tmp.2 %tmp.3();
         %tmp.5 = getm $.Toybox.WatchUi;
         %tmp.6 = getv %tmp.5 :KEY_ENTER;
         %tmp.7 = eq %tmp.4 %tmp.6;
-        bf %tmp.7 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_32_8_if_false;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_32_8_if_true:
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_32_52_start:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 34 12 ]
+        bf %tmp.7 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_33_8_if_false;
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_33_8_if_true:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_33_52_start:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 35 12 ]
         %tmp.8 = getm $.Toybox.System;
         %tmp.9 = getv function %tmp.8 :println;
         %tmp.10 = "KEY_ENTER";
         invoke %tmp.8 %tmp.9(%tmp.10);
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 35 12 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 36 12 ]
         %tmp.11 = true;
         ret %tmp.11;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_32_52_stop:
-        goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_32_8_if_end;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_32_8_if_false:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 37 13 ]
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_13_if_stmt:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_33_52_stop:
+        goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_33_8_if_end;
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_33_8_if_false:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 38 13 ]
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_13_if_stmt:
         %tmp.13 = lgetv %keyEvent;
         %tmp.14 = getv function %tmp.13 :getKey;
         %tmp.15 = invoke %tmp.13 %tmp.14();
         %tmp.16 = getm $.Toybox.WatchUi;
         %tmp.17 = getv %tmp.16 :KEY_UP;
         %tmp.18 = eq %tmp.15 %tmp.17;
-        bf %tmp.18 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_13_if_false;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_13_if_true:
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_53_start:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 39 9 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_53_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_53_stop" ]
+        bf %tmp.18 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_13_if_false;
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_13_if_true:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_53_start:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 40 9 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_53_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_53_stop" ]
         %WindDirection.1 = local;
         %tmp.20 = getv ? :Application;
         %tmp.21 = getv %tmp.20 :Storage;
@@ -153,44 +169,44 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.23 = "WindDirection";
         %tmp.24 = invoke %tmp.21 %tmp.22(%tmp.23);
         lputv %WindDirection.1 %tmp.24;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 40 9 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 41 9 ]
         %tmp.25 = lgetv %WindDirection.1;
         %tmp.26 = 5;
         %tmp.27 = add %tmp.25 %tmp.26;
         lputv %WindDirection.1 %tmp.27;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 41 9 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 42 9 ]
         %tmp.29 = getv ? :Application;
         %tmp.30 = getv %tmp.29 :Storage;
         %tmp.31 = getv function %tmp.30 :setValue;
         %tmp.32 = "WindDirection";
         %tmp.34 = lgetv %WindDirection.1;
         invoke %tmp.30 %tmp.31(%tmp.32, %tmp.34);
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 42 9 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 43 9 ]
         %tmp.35 = getm $.Toybox.System;
         %tmp.36 = getv function %tmp.35 :println;
         %tmp.37 = "TackingMasterView.initialize - WindDirection=";
         %tmp.39 = lgetv %WindDirection.1;
         %tmp.40 = add %tmp.37 %tmp.39;
         invoke %tmp.35 %tmp.36(%tmp.40);
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 43 12 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 44 12 ]
         %tmp.41 = true;
         ret %tmp.41;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_53_stop:
-        goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_13_if_end;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_13_if_false:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 45 13 ]
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_13_if_stmt:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_53_stop:
+        goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_13_if_end;
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_13_if_false:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 46 13 ]
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_46_13_if_stmt:
         %tmp.43 = lgetv %keyEvent;
         %tmp.44 = getv function %tmp.43 :getKey;
         %tmp.45 = invoke %tmp.43 %tmp.44();
         %tmp.46 = getm $.Toybox.WatchUi;
         %tmp.47 = getv %tmp.46 :KEY_DOWN;
         %tmp.48 = eq %tmp.45 %tmp.47;
-        bf %tmp.48 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_13_if_false;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_13_if_true:
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_55_start:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 47 9 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_55_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_55_stop" ]
+        bf %tmp.48 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_46_13_if_end;
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_46_13_if_true:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_46_55_start:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 48 9 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_46_55_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_46_55_stop" ]
         %WindDirection.2 = local;
         %tmp.50 = getv ? :Application;
         %tmp.51 = getv %tmp.50 :Storage;
@@ -198,94 +214,71 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.53 = "WindDirection";
         %tmp.54 = invoke %tmp.51 %tmp.52(%tmp.53);
         lputv %WindDirection.2 %tmp.54;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 48 9 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 49 9 ]
         %tmp.55 = lgetv %WindDirection.2;
         %tmp.56 = 5;
         %tmp.57 = sub %tmp.55 %tmp.56;
         lputv %WindDirection.2 %tmp.57;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 49 9 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 50 9 ]
         %tmp.59 = getv ? :Application;
         %tmp.60 = getv %tmp.59 :Storage;
         %tmp.61 = getv function %tmp.60 :setValue;
         %tmp.62 = "WindDirection";
         %tmp.64 = lgetv %WindDirection.2;
         invoke %tmp.60 %tmp.61(%tmp.62, %tmp.64);
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 51 12 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 52 12 ]
         %tmp.65 = true;
         ret %tmp.65;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_55_stop:
-        goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_13_if_end;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_13_if_false:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 53 13 ]
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_53_13_if_stmt:
-        %tmp.67 = lgetv %keyEvent;
-        %tmp.68 = getv function %tmp.67 :getKey;
-        %tmp.69 = invoke %tmp.67 %tmp.68();
-        %tmp.70 = getm $.Toybox.WatchUi;
-        %tmp.71 = getv %tmp.70 :KEY_ESC;
-        %tmp.72 = eq %tmp.69 %tmp.71;
-        bf %tmp.72 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_53_13_if_end;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_53_13_if_true:
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_53_55_start:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 54 12 ]
-        %tmp.73 = getm $.Toybox.System;
-        %tmp.74 = getv function %tmp.73 :println;
-        %tmp.75 = "KEY_ESC";
-        invoke %tmp.73 %tmp.74(%tmp.75);
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 55 12 ]
-        %tmp.76 = true;
-        ret %tmp.76;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_53_55_stop:
-        goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_53_13_if_end;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_53_13_if_end:
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_45_13_if_end:
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_37_13_if_end:
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_32_8_if_end:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 57 8 ]
-        %tmp.77 = false;
-        ret %tmp.77;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_29_29_stop:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_46_55_stop:
+        goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_46_13_if_end;
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_46_13_if_end:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_38_13_if_end:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_33_8_if_end:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 58 8 ]
+        %tmp.66 = false;
+        ret %tmp.66;
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_30_29_stop:
     }
 }
-[ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 64; ]
+[ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 65; ]
 class DrawableMenuTitle extends WatchUi.Drawable{
-    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 64; ]
+    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 65; ]
     <init> {
     }
-    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 64; ]
+    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 65; ]
     static
     <init> {
     }
-    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 65; @position = 8; ]
+    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 66; @position = 8; ]
     var mIsTitleSelected = false;
-    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 67; ]
+    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 68; ]
     function initialize() as Void {
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_67_26_start:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 68 8 ]
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_68_26_start:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 69 8 ]
         %tmp.2 = getv ? :Drawable;
         %tmp.3 = getv function %tmp.2 :initialize;
         %tmp.4 = newd 0;
         invoke %tmp.2 %tmp.3(%tmp.4);
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_67_26_stop:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_68_26_stop:
     }
-    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 71; ]
+    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 72; ]
     function setSelected(isTitleSelected) {
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_71_42_start:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 72 8 ]
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_72_42_start:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 73 8 ]
         %tmp.2 = lgetv %isTitleSelected;
         putv self :mIsTitleSelected %tmp.2;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_71_42_stop:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_72_42_stop:
     }
-    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 76; ]
+    [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 77; ]
     function draw(dc) {
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start:
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 77 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start:
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 78 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %spacing.1 = local;
         %tmp.1 = 2;
         lputv %spacing.1 %tmp.1;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 78 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 79 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %strMenu.2 = local;
         %tmp.2 = getm $.Toybox.WatchUi;
         %tmp.3 = getv function %tmp.2 :loadResource;
@@ -294,8 +287,8 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.7 = getv %tmp.6 :menu_label_Menu;
         %tmp.8 = invoke %tmp.2 %tmp.3(%tmp.7);
         lputv %strMenu.2 %tmp.8;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 79 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 80 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %appIcon.3 = local;
         %tmp.9 = getm $.Toybox.WatchUi;
         %tmp.10 = getv function %tmp.9 :loadResource;
@@ -304,15 +297,15 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.14 = getv %tmp.13 :LauncherIcon;
         %tmp.15 = invoke %tmp.9 %tmp.10(%tmp.14);
         lputv %appIcon.3 %tmp.15;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 80 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 81 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %bitmapWidth.4 = local;
         %tmp.17 = lgetv %appIcon.3;
         %tmp.18 = getv function %tmp.17 :getWidth;
         %tmp.19 = invoke %tmp.17 %tmp.18();
         lputv %bitmapWidth.4 %tmp.19;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 81 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 82 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %labelWidth.5 = local;
         %tmp.21 = lgetv %dc;
         %tmp.22 = getv function %tmp.21 :getTextWidthInPixels;
@@ -321,8 +314,8 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.27 = getv %tmp.26 :FONT_MEDIUM;
         %tmp.28 = invoke %tmp.21 %tmp.22(%tmp.24, %tmp.27);
         lputv %labelWidth.5 %tmp.28;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 83 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 84 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %bitmapX.6 = local;
         %tmp.30 = lgetv %dc;
         %tmp.31 = getv function %tmp.30 :getWidth;
@@ -336,8 +329,8 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.42 = 2;
         %tmp.43 = div %tmp.41 %tmp.42;
         lputv %bitmapX.6 %tmp.43;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 84 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 85 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %bitmapY.7 = local;
         %tmp.45 = lgetv %dc;
         %tmp.46 = getv function %tmp.45 :getHeight;
@@ -349,8 +342,8 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.53 = 2;
         %tmp.54 = div %tmp.52 %tmp.53;
         lputv %bitmapY.7 %tmp.54;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 85 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 86 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %labelX.8 = local;
         %tmp.56 = lgetv %bitmapX.6;
         %tmp.58 = lgetv %bitmapWidth.4;
@@ -358,8 +351,8 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.61 = lgetv %spacing.1;
         %tmp.62 = add %tmp.59 %tmp.61;
         lputv %labelX.8 %tmp.62;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 86 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 87 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %labelY.9 = local;
         %tmp.64 = lgetv %dc;
         %tmp.65 = getv function %tmp.64 :getHeight;
@@ -367,42 +360,42 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.67 = 2;
         %tmp.68 = div %tmp.66 %tmp.67;
         lputv %labelY.9 %tmp.68;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 88 8 ]
-        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop" ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 89 8 ]
+        [ "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_start" "_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop" ]
         %bkColor.10 = local;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_begin:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_begin:
         %tmp.70 = getv ? :mIsTitleSelected;
-        bf %tmp.70 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_false;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_true:
+        bf %tmp.70 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_false;
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_true:
         %tmp.72 = getv ? :Graphics;
         %tmp.73 = getv %tmp.72 :COLOR_BLUE;
         push %tmp.73;
-        goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_end;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_false:
+        goto @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_end;
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_false:
         %tmp.75 = getv ? :Graphics;
         %tmp.76 = getv %tmp.75 :COLOR_BLACK;
         push %tmp.76;
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_end:
-        %tmp.77 = phi [%tmp.70 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_begin] [%tmp.73 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_true] [%tmp.76 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_false] [%tmp.77 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_88_22_end];
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_end:
+        %tmp.77 = phi [%tmp.70 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_begin] [%tmp.73 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_true] [%tmp.76 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_false] [%tmp.77 @_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_89_22_end];
         lputv %bkColor.10 %tmp.77;
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 89 8 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 90 8 ]
         %tmp.79 = lgetv %dc;
         %tmp.80 = getv function %tmp.79 :setColor;
         %tmp.82 = lgetv %bkColor.10;
         %tmp.84 = lgetv %bkColor.10;
         invoke %tmp.79 %tmp.80(%tmp.82, %tmp.84);
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 90 8 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 91 8 ]
         %tmp.86 = lgetv %dc;
         %tmp.87 = getv function %tmp.86 :clear;
         invoke %tmp.86 %tmp.87();
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 92 8 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 93 8 ]
         %tmp.89 = lgetv %dc;
         %tmp.90 = getv function %tmp.89 :drawBitmap;
         %tmp.92 = lgetv %bitmapX.6;
         %tmp.94 = lgetv %bitmapY.7;
         %tmp.96 = lgetv %appIcon.3;
         invoke %tmp.89 %tmp.90(%tmp.92, %tmp.94, %tmp.96);
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 93 8 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 94 8 ]
         %tmp.98 = lgetv %dc;
         %tmp.99 = getv function %tmp.98 :setColor;
         %tmp.101 = getv ? :Graphics;
@@ -410,7 +403,7 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.104 = getv ? :Graphics;
         %tmp.105 = getv %tmp.104 :COLOR_TRANSPARENT;
         invoke %tmp.98 %tmp.99(%tmp.102, %tmp.105);
-[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 94 8 ]
+[ "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc" 95 8 ]
         %tmp.107 = lgetv %dc;
         %tmp.108 = getv function %tmp.107 :drawText;
         %tmp.110 = lgetv %labelX.8;
@@ -424,7 +417,7 @@ _Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingM
         %tmp.123 = getv %tmp.122 :TEXT_JUSTIFY_VCENTER;
         %tmp.124 = bitor %tmp.120 %tmp.123;
         invoke %tmp.107 %tmp.108(%tmp.110, %tmp.112, %tmp.115, %tmp.117, %tmp.124);
-_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_76_22_stop:
+_Users_jordan_Documents_Documents___Jordan’s_MacBook_Air_Garmin_Files_TackingMaster_source_TackingMasterDelegate_mc_77_22_stop:
     }
 }
 [ @file = "/Users/jordan/Documents/Documents - Jordan’s MacBook Air/Garmin Files/TackingMaster/source/TackingMasterDelegate.mc"; @line = 1; ]
