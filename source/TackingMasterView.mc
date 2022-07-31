@@ -229,6 +229,7 @@ class TackingMasterView extends WatchUi.View {
 			var memoryLevel = sysStats.usedMemory/1024;
 			dc.drawText(m_width/2 + 35, m_height/2 - 26, Graphics.FONT_SYSTEM_XTINY, "B:" + batteryLevel.format("%.0f").toString() + "%", Graphics.TEXT_JUSTIFY_LEFT);
 			dc.drawText(m_width/2 + 35, m_height/2, Graphics.FONT_SYSTEM_XTINY, "M:" + memoryLevel.format("%.0f").toString() + "kb", Graphics.TEXT_JUSTIFY_LEFT);
+			dc.drawText(m_width/2 - 35, m_height/2 -13, Graphics.FONT_SYSTEM_XTINY, "TA:" + m_TackAngle.toString(), Graphics.TEXT_JUSTIFY_RIGHT);
 			
 		} else {
             // dc.drawRectangle(x, y, width, height)
