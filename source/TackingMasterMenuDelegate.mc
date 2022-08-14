@@ -48,23 +48,10 @@ class TackingMasterMenuDelegate extends WatchUi.Menu2InputDelegate {
             System.println("COG: " + COG);
             System.println("StbdWD: " +WindDirection);
         } else if ( item.getId().equals("idTackAngle") ) {
-            var tackAngleMenu = new WatchUi.Menu2({:title=>WatchUi.loadResource(Rez.Strings.menu_label_TackAngle)});
-            var tackAngleLabel = WatchUi.loadResource(Rez.Strings.menu_label_TackAngle);
-            var tackAngle80 = WatchUi.loadResource(Rez.Strings.menu_label_TackAngle80);
-            var tackAngle90 = WatchUi.loadResource(Rez.Strings.menu_label_TackAngle90);
-            var tackAngle100 = WatchUi.loadResource(Rez.Strings.menu_label_TackAngle100);
-            var tackAngle110 = WatchUi.loadResource(Rez.Strings.menu_label_TackAngle110);
-
-            //Build the settings-menu
-            tackAngleMenu.addItem(new WatchUi.MenuItem(tackAngleLabel, tackAngle80, "idSetTackAngle80", null));
-            //WatchUi.pushView(tackAngleMenu, new Menu2TackAngleSubMenuDelegate(), WatchUi.SLIDE_UP );
-            tackAngleMenu.addItem(new WatchUi.MenuItem(tackAngleLabel, tackAngle90, "idSetTackAngle90", null));
-            //WatchUi.pushView(tackAngleMenu, new Menu2TackAngleSubMenuDelegate(), WatchUi.SLIDE_UP );
-            tackAngleMenu.addItem(new WatchUi.MenuItem(tackAngleLabel, tackAngle100, "idSetTackAngle100", null));
-            //WatchUi.pushView(tackAngleMenu, new Menu2TackAngleSubMenuDelegate(), WatchUi.SLIDE_UP );
-            tackAngleMenu.addItem(new WatchUi.MenuItem(tackAngleLabel, tackAngle110, "idSetTackAngle110", null));
-            WatchUi.pushView(tackAngleMenu, new Menu2TackAngleSubMenuDelegate(), WatchUi.SLIDE_UP );
+            WatchUi.pushView(new Rez.Menus.TackAngleMenu(), new TackAngleSubMenuDelegate(), WatchUi.SLIDE_UP );
         } else if ( item.getId().equals("idSettings") ) {
+            //WatchUi.pushView(new Rez.Menus.SettingsMenu(), new SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
+            //WatchUi.pushView(new SettingsMenu(), new SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
 //          System.println("TackingMasterMenuDelegate::onSelect() - idSettings");
             var settingsMenu = new WatchUi.Menu2({:title=>WatchUi.loadResource(Rez.Strings.menu_label_Settings)});
 
@@ -99,7 +86,7 @@ class TackingMasterMenuDelegate extends WatchUi.Menu2InputDelegate {
             settingsMenu.addItem(new WatchUi.ToggleMenuItem(strDrawSpeedPlot, {:enabled=>strShow, :disabled=>strHide}, "idDrawSpeedPlot", bDrawSpeedPlot, {:alignment=>WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT}));
             WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
             settingsMenu.addItem(new WatchUi.ToggleMenuItem(strDrawPolarCogPlot, {:enabled=>strShow, :disabled=>strHide}, "idDrawPolarCogPlot", bDrawPolarCogPlot, {:alignment=>WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT}));
-            WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
+            WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP ); 
 /*
         } else {
             WatchUi.requestUpdate();
@@ -156,30 +143,5 @@ class Menu2SettingsSubMenuDelegate extends WatchUi.Menu2InputDelegate {
     function onDone() {
         System.println("Menu2SettingsSubMenuDelegate::onDone()");
         WatchUi.popView(WatchUi.SLIDE_DOWN);
-    }
-}
-
-class Menu2TackAngleSubMenuDelegate extends WatchUi.Menu2InputDelegate {
-    function initialize() {
-        Menu2InputDelegate.initialize();
-    }
-
-    function onSelect(item) {
-        if (item.getId().equals("idSetTackAngle80") ) {
-            Application.Storage.setValue("TackAngle", 80);
-            WatchUi.popView(WatchUi.SLIDE_DOWN);
-        }
-        if (item.getId().equals("idSetTackAngle90") ) {
-            Application.Storage.setValue("TackAngle", 90);
-            WatchUi.popView(WatchUi.SLIDE_DOWN);
-        }
-        if (item.getId().equals("idSetTackAngle100") ) {
-            Application.Storage.setValue("TackAngle", 100);
-            WatchUi.popView(WatchUi.SLIDE_DOWN);
-        }
-        if (item.getId().equals("idSetTackAngle110") ) {
-            Application.Storage.setValue("TackAngle", 110);
-            WatchUi.popView(WatchUi.SLIDE_DOWN);
-        }
     }
 }

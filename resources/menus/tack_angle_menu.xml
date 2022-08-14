@@ -1,0 +1,7 @@
+
+<menu2 id="TackAngleMenu" title="Set Tack Angle">
+    <menu-item id="tack_angle_80" label="Set Tack Angle" subLabel="80"></menu-item>
+    <menu-item id="tack_angle_90" label="Set Tack Angle" subLabel="90"></menu-item>
+    <menu-item id="tack_angle_100" label="Set Tack Angle" subLabel="100"></menu-item>
+    <menu-item id="tack_angle_110" label="Set Tack Angle" subLabel="110"></menu-item>
+</menu2>
