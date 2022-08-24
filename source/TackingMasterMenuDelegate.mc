@@ -87,6 +87,11 @@ class TackingMasterMenuDelegate extends WatchUi.Menu2InputDelegate {
             WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
             settingsMenu.addItem(new WatchUi.ToggleMenuItem(strDrawPolarCogPlot, {:enabled=>strShow, :disabled=>strHide}, "idDrawPolarCogPlot", bDrawPolarCogPlot, {:alignment=>WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT}));
             WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP ); 
+
+            // Testing - Delete the following lines
+            var itemId = settingsMenu.findItemById("idDrawNWSE");
+            System.println(itemId);
+
 /*
         } else {
             WatchUi.requestUpdate();
