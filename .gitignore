@@ -9,3 +9,5 @@ TODO.txt
 properties.mk
 .vscode/launch.json
 makefile
+/bin
+.DS_Store

@@ -1,5 +1,5 @@
 <strings>
-    <string id="AppName">TackingMaster</string>
+    <string id="AppName">TackingMasterJM</string>
 
     <string id="prompt">Are you ready?</string>
     <string id="menu_label_Menu">Menu</string>
@@ -15,6 +15,12 @@
 
     <string id="menu_label_Show">Show</string>
     <string id="menu_label_Hide">Hide</string>
+
+    <string id="menu_label_TackAngle">Set Tack Angle</string>
+    <string id="menu_label_TackAngle80">80</string>
+    <string id="menu_label_TackAngle90">90</string>
+    <string id="menu_label_TackAngle100">100</string>
+    <string id="menu_label_TackAngle110">110</string>
 
     <string id="menu_label_Settings">Settings</string>
 </strings>

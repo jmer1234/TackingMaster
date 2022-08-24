@@ -1,0 +1,7 @@
+
+<menu2 id="SettingsMenu" title="Settings">
+    <toggle-menu-item id="boat_symbol" label="Boat" subLabel="Show" disabledSubLabel="Hide"></toggle-menu-item>
+    <toggle-menu-item id="cardinal_points" label="N+E+S+W" subLabel="Show" disabledSubLabel="Hide" checked="true"></toggle-menu-item>
+    <toggle-menu-item id="speed_history" label="Speed History" subLabel="Show" disabledSubLabel="Hide" checked="true"></toggle-menu-item>
+    <toggle-menu-item id="cog_history" label="COG History" subLabel="Show" disabledSubLabel="Hide" checked="true"></toggle-menu-item>
+</menu2>

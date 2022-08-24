@@ -78,18 +78,18 @@ class TackingMasterDynamics
 		m_NowPointer+=1;
 		if (m_NowPointer>=m_Size){
 			m_NowPointer=0;
-//			System.println("Dynamics::push(" + newData + ")  -- m_NowPointer=" + m_NowPointer + " - Passing buffer-limit - new beginn at top");
+			//System.println("Dynamics::push(" + newData + ")  -- m_NowPointer=" + m_NowPointer + " - Passing buffer-limit - new beginn at top");
 		}
 
 		//System.println("Dynamics::push(" + newData + ")  -- m_NowPointer=" + m_NowPointer);
 
 		m_aData[m_NowPointer] = newData;
 
-	// Weighted moving average : Weights: 1-2-1
-	//Algorithm:
-	// Smoothed(prev2) = (prev4 + prev3*2 + prev2*3 + prev1*2 + this) / 4
-	// Smoothed(prev1) = (prev2 + prev1*2 + this) / 4
-	// Smoothed(this) = This
+		// Weighted moving average : Weights: 1-2-1
+		// Algorithm:
+		// Smoothed(prev2) = (prev4 + prev3*2 + prev2*3 + prev1*2 + this) / 4
+		// Smoothed(prev1) = (prev2 + prev1*2 + this) / 4
+		// Smoothed(this) = This
 		var Prev1Pointer;
 		var Prev2Pointer;
 		var Prev3Pointer;
@@ -186,7 +186,7 @@ class TackingMasterDynamics
 		var i = m_NowPointer-sinceNow;
 
 		if (i<0){
-//			System.println("getSmoothedData() - Passerer buffer");
+			//System.println("getSmoothedData() - Passerer buffer");
 			i = m_Size + (i);
 		}
 

@@ -19,6 +19,7 @@ class TackingMasterDelegate extends WatchUi.BehaviorDelegate {
         // Add menu items for demonstrating toggles, checkbox and icon menu items
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_label_Port), WatchUi.loadResource(Rez.Strings.menu_label_Set_Direction), "idSetPortWD", null));
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_label_Starb), WatchUi.loadResource(Rez.Strings.menu_label_Set_Direction), "idSetStarbWD", null));
+        menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_label_TackAngle), null, "idTackAngle", null));
         menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_label_Settings), null, "idSettings", null));
         WatchUi.pushView(menu, new TackingMasterMenuDelegate(), WatchUi.SLIDE_UP );
         return true;
@@ -50,10 +51,10 @@ class TackingMasterDelegate extends WatchUi.BehaviorDelegate {
 //	        System.println("TackingMasterView.initialize - WindDirection=" + WindDirection);
             return true;
         }
-        else if (keyEvent.getKey() == WatchUi.KEY_ESC) {
+        /*else if (keyEvent.getKey() == WatchUi.KEY_ESC) {
             System.println("KEY_ESC");
             return true;
-        }
+        }*/
         return false;
     }
     
