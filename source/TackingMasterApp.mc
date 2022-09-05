@@ -16,7 +16,7 @@ class TackingMasterApp extends Application.AppBase {
     }
 
     // onStart() is called on application start up 
-    function onStart(state) {
+    function onStart(state as Dictionary?) as Void {
 //        System.println("TackingMasterView.onUpdate"); 
 
         //Start GPS
@@ -32,7 +32,7 @@ class TackingMasterApp extends Application.AppBase {
     }
 
     // onStop() is called when your application is exiting
-    function onStop(state) {
+    function onStop(state as Dictionary?) as Void {
 
         //Stop GPS
         Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
@@ -52,7 +52,7 @@ class TackingMasterApp extends Application.AppBase {
 		m_TackingMasterView = new TackingMasterView();
 		m_TackingMasterDelegate = new TackingMasterDelegate();
 
-        return [ m_TackingMasterView, m_TackingMasterDelegate ];
+        return [ m_TackingMasterView, m_TackingMasterDelegate ] as Array<Views or InputDelegates>;
     }
 
 }

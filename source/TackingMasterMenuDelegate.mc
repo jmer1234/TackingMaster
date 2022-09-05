@@ -47,6 +47,10 @@ class TackingMasterMenuDelegate extends WatchUi.Menu2InputDelegate {
 	        WatchUi.popView(WatchUi.SLIDE_DOWN);
             System.println("COG: " + COG);
             System.println("StbdWD: " +WindDirection);
+        } else if ( item.getId().equals("idTimer") ) {
+            var view = new TimerView();
+            var delegate = new TimerDelegate(view);
+            WatchUi.pushView(view, delegate, WatchUi.SLIDE_UP );
         } else if ( item.getId().equals("idTackAngle") ) {
             WatchUi.pushView(new Rez.Menus.TackAngleMenu(), new TackAngleSubMenuDelegate(), WatchUi.SLIDE_UP );
         } else if ( item.getId().equals("idSettings") ) {
