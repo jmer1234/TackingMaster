@@ -76,6 +76,10 @@ class TackingMasterView extends WatchUi.View {
  		if (m_bDrawPolarCogPlot==null){m_bDrawPolarCogPlot = false;}   	
 
 		m_bDrawOrthogonalCogPlot=false;
+        
+        if (!$.isSessionRecording()) {
+            $.startRecording();
+        }
 
     }
 

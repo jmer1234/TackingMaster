@@ -42,7 +42,6 @@ class SettingsSubMenuDelegate extends WatchUi.Menu2InputDelegate {
     function onBack() {
         System.println("Menu2SettingsSubMenuDelegate::onBack()");
         WatchUi.popView(WatchUi.SLIDE_DOWN);
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
 
     function onDone() {

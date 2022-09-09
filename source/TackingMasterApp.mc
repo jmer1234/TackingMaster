@@ -3,12 +3,54 @@ import Toybox.WatchUi;
 import Toybox.System;
 import Toybox.Position;
 import Toybox.Lang;
+import Toybox.ActivityRecording;
+
+var _session as Session?;
+
+//! Stop the recording and save
+public function stopSaveRecording() as Void {
+    var session = _session;
+    if ((Toybox has :ActivityRecording) && isSessionRecording() && (session != null)) {
+        session.stop();
+        session.save();
+        _session = null;
+        WatchUi.requestUpdate();
+    }
+}
+
+//! Stop the recording and don't save
+public function stopRecording() as Void {
+    var session = _session;
+    if ((Toybox has :ActivityRecording) && isSessionRecording() && (session != null)) {
+        session.stop();
+        _session = null;
+        WatchUi.requestUpdate();
+    }
+}
+
+//! Start recording a session
+public function startRecording() as Void {
+    var session = ActivityRecording.createSession({:name=>"Tacking Master Sailing", :sport=>ActivityRecording.SPORT_SAILING});
+    _session = session;
+    session.start();
+    WatchUi.requestUpdate();
+}
+
+//! Get whether a session is currently recording
+//! @return true if there is a session currently recording, false otherwise
+public function isSessionRecording() as Boolean {
+    var session = _session;
+    if (session != null) {
+        return session.isRecording();
+    }
+    return false;
+}
 
 //Main master-class
 class TackingMasterApp extends Application.AppBase {
 
-	var m_TackingMasterView;
-	var m_TackingMasterDelegate;
+	var m_TackingMasterView as TackingMasterView?;
+	var m_TackingMasterDelegate as TackingMasterDelegate?;
 
 
     function initialize() {
@@ -36,6 +78,10 @@ class TackingMasterApp extends Application.AppBase {
 
         //Stop GPS
         Position.enableLocationEvents(Position.LOCATION_DISABLE, method(:onPosition));
+        var TackingMasterView = m_TackingMasterView;
+        if (TackingMasterView != null) {
+            TackingMasterView.stopRecording();
+        }
 
     	// Save settings to next time
 		var WindDirection = Application.Storage.getValue("WindDirection");

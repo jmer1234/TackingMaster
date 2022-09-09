@@ -52,10 +52,14 @@ class TackingMasterDelegate extends WatchUi.BehaviorDelegate {
 //	        System.println("TackingMasterView.initialize - WindDirection=" + WindDirection);
             return true;
         }
-        /*else if (keyEvent.getKey() == WatchUi.KEY_ESC) {
-            System.println("KEY_ESC");
+        else if (keyEvent.getKey() == WatchUi.KEY_ESC) {
+            var menu = new WatchUi.Menu2({:title=>new DrawableMenuTitle()});
+            menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_label_SaveExit), null, "idSaveExit", null));
+            menu.addItem(new WatchUi.MenuItem(WatchUi.loadResource(Rez.Strings.menu_label_Exit), null, "idExit", null));
+            WatchUi.pushView(menu, new TackingMasterExitDelegate(), WatchUi.SLIDE_UP );
+            //System.println("KEY_ESC");
             return true;
-        }*/
+        }
         return false;
     }
     

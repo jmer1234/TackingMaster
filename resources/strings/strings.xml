@@ -25,4 +25,6 @@
     <string id="menu_label_TackAngle110">110</string>
 
     <string id="menu_label_Settings">Settings</string>
+    <string id="menu_label_SaveExit">Save and Exit</string>
+    <string id="menu_label_Exit">Exit (don't save)</string>
 </strings>

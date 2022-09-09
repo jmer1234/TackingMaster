@@ -84,11 +84,11 @@ class TackingMasterMenuDelegate extends WatchUi.Menu2InputDelegate {
 
 			//Build the settings-menu
             settingsMenu.addItem(new WatchUi.ToggleMenuItem(strDrawBoat, {:enabled=>strShow, :disabled=>strHide}, "idDrawBoat", bDrawBoat, {:alignment=>WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT}));
-            WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
+            //WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
             settingsMenu.addItem(new WatchUi.ToggleMenuItem(strDrawNWSE, {:enabled=>strShow, :disabled=>strHide}, "idDrawNWSE", bDrawNWSE, {:alignment=>WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT}));
-            WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
+            //WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
             settingsMenu.addItem(new WatchUi.ToggleMenuItem(strDrawSpeedPlot, {:enabled=>strShow, :disabled=>strHide}, "idDrawSpeedPlot", bDrawSpeedPlot, {:alignment=>WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT}));
-            WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
+            //WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP );
             settingsMenu.addItem(new WatchUi.ToggleMenuItem(strDrawPolarCogPlot, {:enabled=>strShow, :disabled=>strHide}, "idDrawPolarCogPlot", bDrawPolarCogPlot, {:alignment=>WatchUi.MenuItem.MENU_ITEM_LABEL_ALIGN_LEFT}));
             WatchUi.pushView(settingsMenu, new Menu2SettingsSubMenuDelegate(), WatchUi.SLIDE_UP ); 
 
@@ -143,8 +143,8 @@ class Menu2SettingsSubMenuDelegate extends WatchUi.Menu2InputDelegate {
 
     function onBack() {
 //        System.println("Menu2SettingsSubMenuDelegate::onBack()");
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
-        WatchUi.popView(WatchUi.SLIDE_DOWN);
+        //WatchUi.popView(WatchUi.SLIDE_DOWN);
+        //WatchUi.popView(WatchUi.SLIDE_DOWN);
         WatchUi.popView(WatchUi.SLIDE_DOWN);
         WatchUi.popView(WatchUi.SLIDE_DOWN);
     }
