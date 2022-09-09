@@ -67,6 +67,11 @@ The tack angle is defined to 90 degrees.
 1.8
  - Support for English language.
 
+1.9
+ - Interface refinement
+ - Added adjustable tack angles
+ - - Select between 80, 90, 100, and 110
+
 
 ## Please use it if you find it convinient
 
