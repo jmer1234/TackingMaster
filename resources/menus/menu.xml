@@ -1,6 +1,6 @@
 <menu2 id="MainMenu" title="Menu">
-    <menu-item id="port_tack" label="Port Tack" subLabel="Set close-hauled direction"></menu-item>
     <menu-item id="starboard_tack" label="Starboard Tack" subLabel="Set close-hauled direction">></menu-item>
+    <menu-item id="port_tack" label="Port Tack" subLabel="Set close-hauled direction"></menu-item>
     <menu-item id="timer" label="Race Timer"></menu-item>
     <menu-item id="tack_angle" label="Tack Angle"></menu-item>
     <menu-item id="settings" label="Settings"></menu-item>

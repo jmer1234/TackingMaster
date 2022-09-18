@@ -1,0 +1,16 @@
+<resources>
+
+    <properties>
+        <property id="show_speed_prop" type="boolean">true</property>
+    </properties>
+
+    <strings>
+       <string id="show_speed_title">Show Speed</string>
+    </strings>
+
+    <settings>
+        <setting propertyKey="@Properties.show_speed_prop" title="@Strings.show_speed_title">
+            <settingConfig type="boolean" />
+        </setting>
+    </settings>
+</resources>

@@ -134,6 +134,8 @@ class TackingMasterView extends WatchUi.View {
 		m_width = dc.getWidth();
 		m_height = dc.getHeight();
 
+		var show_speed = Application.Properties.getValue("show_speed_prop");
+
         // Call the parent onUpdate function to redraw the layout
         //System.println("TackingMasterView.onUpdate");
         View.onUpdate(dc);
@@ -181,7 +183,9 @@ class TackingMasterView extends WatchUi.View {
 			}
 	*/
 			//Draw speed-curve and SOG-text
-			drawSpeedPlot(dc);
+			if(show_speed) {
+				drawSpeedPlot(dc);
+			}
 
 			//Draw Cog-curve 
 			drawCogPlot(dc);
