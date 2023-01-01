@@ -216,27 +216,27 @@ class TackingMasterView extends WatchUi.View {
 			drawCogDot(dc);
 
 			// Draw COG-text in a circle
-			var fontHeight = dc.getFontHeight(Graphics.FONT_TINY); 
+			var fontHeight = dc.getFontHeight(Graphics.FONT_NUMBER_MILD); 
 			dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
-			dc.fillCircle(m_width/2, m_height/2, 25);
+			dc.fillCircle(m_width/2, m_height/2, 30);
 			dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_BLUE);
-			dc.drawCircle(m_width/2, m_height/2, 25);
+			dc.drawCircle(m_width/2, m_height/2, 30);
 			
 			dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_BLACK);
-			dc.drawText(m_width/2, m_height/2-fontHeight/2, Graphics.FONT_TINY, m_COG_deg.toNumber() , Graphics.TEXT_JUSTIFY_CENTER);
+			dc.drawText(m_width/2, m_height/2-fontHeight/2, Graphics.FONT_NUMBER_MILD, m_COG_deg.toNumber() , Graphics.TEXT_JUSTIFY_CENTER);
 
 			// Draw Time-text
 			var myTime = System.getClockTime(); // ClockTime object
 			var myTimeText = myTime.hour.format("%02d") + ":" + myTime.min.format("%02d") + ":" + myTime.sec.format("%02d");
 			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-			dc.drawText(m_width/2, m_height/2+70, Graphics.FONT_XTINY, myTimeText, Graphics.TEXT_JUSTIFY_CENTER);
+			dc.drawText(m_width/2, m_height/2+60, Graphics.FONT_SMALL, myTimeText, Graphics.TEXT_JUSTIFY_CENTER);
 
 			//Draw Battery Level
 			var sysStats = System.getSystemStats();
 			var batteryLevel = sysStats.battery;
-			var memoryLevel = sysStats.usedMemory/1024;
-			dc.drawText(m_width/2 + 35, m_height/2 - 26, Graphics.FONT_SYSTEM_XTINY, "B:" + batteryLevel.format("%.0f").toString() + "%", Graphics.TEXT_JUSTIFY_LEFT);
-			dc.drawText(m_width/2 + 35, m_height/2, Graphics.FONT_SYSTEM_XTINY, "M:" + memoryLevel.format("%.0f").toString() + "kb", Graphics.TEXT_JUSTIFY_LEFT);
+			//var memoryLevel = sysStats.usedMemory/1024;
+			dc.drawText(m_width/2 + 35, m_height/2 - 13, Graphics.FONT_SYSTEM_XTINY, "B:" + batteryLevel.format("%.0f").toString() + "%", Graphics.TEXT_JUSTIFY_LEFT);
+			//dc.drawText(m_width/2 + 35, m_height/2, Graphics.FONT_SYSTEM_XTINY, "M:" + memoryLevel.format("%.0f").toString() + "kb", Graphics.TEXT_JUSTIFY_LEFT);
 			dc.drawText(m_width/2 - 35, m_height/2 -13, Graphics.FONT_SYSTEM_XTINY, "TA:" + m_TackAngle.toString(), Graphics.TEXT_JUSTIFY_RIGHT);
 			
 		} else {
@@ -444,7 +444,6 @@ class TackingMasterView extends WatchUi.View {
 
     	if (m_bDrawSpeedPlot){
 			m_SpeedHistory.drawPlot(10, m_height/2+33, plotWidth, plotHeight, dc);
-
 			dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
 			dc.drawText(m_width*0.75, m_height/2+33, Graphics.FONT_SMALL, m_Speed_kn.format("%.1f") + " kn", Graphics.TEXT_JUSTIFY_CENTER);
 		} else {

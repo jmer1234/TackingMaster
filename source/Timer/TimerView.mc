@@ -98,11 +98,11 @@ class TimerView extends WatchUi.View {
         dc.clear();
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         _string = timerString();
-        dc.drawText(_center[0], _center[1], Graphics.FONT_NUMBER_THAI_HOT, _string, Graphics.TEXT_JUSTIFY_CENTER);// Draw Time-text
+        dc.drawText(_center[0], _center[1]-30, Graphics.FONT_NUMBER_THAI_HOT, _string, Graphics.TEXT_JUSTIFY_CENTER);// Draw Time-text
 		
         var myTime = System.getClockTime(); // ClockTime object
 		var myTimeText = myTime.hour.format("%02d") + ":" + myTime.min.format("%02d") + ":" + myTime.sec.format("%02d");
-		dc.drawText(_center[0], 30, Graphics.FONT_TINY, myTimeText, Graphics.TEXT_JUSTIFY_CENTER);
+		dc.drawText(_center[0], _center[1]+40, Graphics.FONT_NUMBER_MEDIUM, myTimeText, Graphics.TEXT_JUSTIFY_CENTER);
 
         var startStopLabel = (!isRunning) ? "Start" : "Stop";
         var syncLabel = "Syn";
