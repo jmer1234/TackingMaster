@@ -5,6 +5,7 @@ import Toybox.Application;
 import Toybox.Timer;
 import Toybox.Position;
 import Toybox.Math;
+using Toybox.Sensor;
 
 var myCount =  0;
 
@@ -40,6 +41,7 @@ class TackingMasterView extends WatchUi.View {
 	var m_boatScale=1.2;
 	var m_SpeedHistory = new TackingMasterDynamics(100,false);   // standard 120 (2 min)
 	var m_CogHistory   = new TackingMasterDynamics(100, true);   // standard 120 (2 min)
+	var sensorInfo;
 	// Error: Watchdog Tripped Error - Code Executed Too Long
 	// For wathces with watchdog_count=120000, set TackingMasterDynamics for 110 is highest
 	
@@ -237,7 +239,22 @@ class TackingMasterView extends WatchUi.View {
 			//var memoryLevel = sysStats.usedMemory/1024;
 			dc.drawText(m_width/2 + 35, m_height/2 - 13, Graphics.FONT_SYSTEM_XTINY, "B:" + batteryLevel.format("%.0f").toString() + "%", Graphics.TEXT_JUSTIFY_LEFT);
 			//dc.drawText(m_width/2 + 35, m_height/2, Graphics.FONT_SYSTEM_XTINY, "M:" + memoryLevel.format("%.0f").toString() + "kb", Graphics.TEXT_JUSTIFY_LEFT);
-			dc.drawText(m_width/2 - 35, m_height/2 -13, Graphics.FONT_SYSTEM_XTINY, "TA:" + m_TackAngle.toString(), Graphics.TEXT_JUSTIFY_RIGHT);
+			
+			// Draw tack angle
+			//dc.drawText(m_width/2 - 35, m_height/2 -13, Graphics.FONT_SYSTEM_XTINY, "TA:" + m_TackAngle.toString(), Graphics.TEXT_JUSTIFY_RIGHT);
+			
+			// Draw magnetic bearing
+			sensorInfo = Sensor.getInfo();
+			if (sensorInfo has :heading && sensorInfo.heading != null) {
+            var mag = sensorInfo.mag;
+            var headingRad = sensorInfo.heading;
+            var heading = (headingRad * (180/Math.PI)) - 3.7;
+            if(heading < 0) {
+                heading = 360 + heading;
+            }
+            //_direction.setText(heading.format("%.0f"));
+			dc.drawText(m_width/2 - 35, m_height/2 -13, Graphics.FONT_SYSTEM_XTINY, "MH:" +heading.format("%.0f"), Graphics.TEXT_JUSTIFY_RIGHT);
+        }
 			
 		} else {
             // dc.drawRectangle(x, y, width, height)
