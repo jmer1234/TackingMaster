@@ -44,7 +44,7 @@ class TackingMasterApp extends Application.AppBase {
 
         // Stop recording the session
         if (TackingMasterView != null) {
-            TackingMasterView.stopRecording();
+            $.stopRecording();
         }
 
     	// Save settings to next time

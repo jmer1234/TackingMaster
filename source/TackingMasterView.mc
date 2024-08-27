@@ -246,7 +246,7 @@ class TackingMasterView extends WatchUi.View {
 			// Draw magnetic bearing
 			sensorInfo = Sensor.getInfo();
 			if (sensorInfo has :heading && sensorInfo.heading != null) {
-            var mag = sensorInfo.mag;
+            var mag = Sensor.Info.mag;
             var headingRad = sensorInfo.heading;
             var heading = (headingRad * (180/Math.PI)) - 3.7;
             if(heading < 0) {

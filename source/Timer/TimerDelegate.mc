@@ -54,5 +54,6 @@ class TimerDelegate extends WatchUi.BehaviorDelegate {
     function onBack() {
 //        System.println("TackingMasterMenuDelegate::onBack()");
         WatchUi.popView(WatchUi.SLIDE_DOWN);
+        return true;
     }
 }

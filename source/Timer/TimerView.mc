@@ -27,7 +27,7 @@ class TimerView extends WatchUi.View {
     private var _clockTimer as Timer.Timer?;
     private var _center = new [2];
     private var _vibes = false;
-    private var _string as String;
+    private var _string as String?;
     var isRunning = false as Boolean;
     var _count as Number = 300;
 
